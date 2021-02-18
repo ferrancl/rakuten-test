@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { Home, Detail } from './pages'
 import { ErrorMessage } from './containers/ErrorMessage'
@@ -16,7 +16,6 @@ export const App = () => {
             <Route exact path="/detail/:id" >
                 <Detail />
             </Route>
-            <Redirect to="/" />
         </Switch>
 
         <ErrorMessage />

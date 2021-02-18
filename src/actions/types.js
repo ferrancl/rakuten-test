@@ -1,1 +1,8 @@
-// export const CHANGE_LOADER = 'CHANGE_LOADER'
+export const START_LOADING = "START_LOADING"
+export const FINISH_LOADING = "START_LOADING"
+
+export const SET_ERROR = "SET_ERROR"
+export const REMOVE_ERROR = "CLEAR_ERROR"
+
+export const SET_MOVIES_LIST = "SET_MOVIES_LIST"
+export const SET_DETAILS_FETCHED = "SET_DETAILS_FETCHED"
