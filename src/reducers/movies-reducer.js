@@ -1,15 +1,13 @@
 import { SET_MOVIES_LIST } from "../actions/types";
 
-const initialState = {
-    moviesList: []
-}
+const initialState = []
 
-export const moviesReducer = (state= initialState, action) => {
-    switch (action.type){
+export const moviesReducer = (state = initialState, {type, payload}) => {
+    switch (type){
+
         case SET_MOVIES_LIST:
-            return {
-                moviesList: action.payload
-            }
+            return payload
+
         default:
             return state
     }

@@ -1,15 +1,12 @@
 import { SET_DETAILS_FETCHED } from "../actions/types";
 
-const initialState = {
-    detailsFetched: []
-}
+const initialState = []
 
-export const detailsReducer = (state = initialState, action) => {
-    switch (action.type){
+export const detailsReducer = (state = initialState, {type, payload}) => {
+    switch (type){
         case SET_DETAILS_FETCHED:
-            return {
-                detailsFetched: action.payload
-            }
+            return [...state, payload]
+
         default:
             return state;
     }

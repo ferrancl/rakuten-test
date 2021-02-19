@@ -1,20 +1,14 @@
 import { FINISH_LOADING, START_LOADING } from "../actions/types"
 
-const initialState = {
-    loading: false
-}
+const initialState = false
 
-export const loadingReducer = (state = initialState, action) => {
-    switch (action.type){
+export const loadingReducer = (state = initialState, {type}) => {
+    switch (type){
         case START_LOADING:
-            return {
-                loading: true
-            }
+            return true
         
         case FINISH_LOADING:
-            return {
-                loading: false
-            }
+            return false
 
         default:
             return state
