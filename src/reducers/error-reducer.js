@@ -1,7 +1,7 @@
 import { REMOVE_ERROR, SET_ERROR } from "../actions/types";
 
 const initialState = {
-    error: undefined
+    error: false
 }
 
 export const errorReducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ export const errorReducer = (state = initialState, action) => {
         
         case REMOVE_ERROR:
             return {
-                error: undefined
+                error: false
             }
 
         default:

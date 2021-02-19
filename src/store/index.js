@@ -1,7 +1,15 @@
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
-import {rootReducer} from './reducers'
+import { loadingReducer, errorReducer, moviesReducer, detailsReducer } from '../reducers'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const rootReducer = combineReducers({
+    loading: loadingReducer,
+    error: errorReducer,
+    movies: moviesReducer,
+    details: detailsReducer
+})
+
+const store = createStore(rootReducer, composeWithDevTools( applyMiddleware(thunk)))
 
 export default store

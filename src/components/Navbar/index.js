@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const index = () => {
+export const Navbar = () => {
     return (
         <nav>
             <h3>Navbar</h3>
