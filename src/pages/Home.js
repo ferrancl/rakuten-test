@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeError } from '../actions'
 import { Loader } from '../components'
-import { CategoryContainer } from '../containers/CategoryContainer'
+import { CategoryContainer } from '../containers/'
 import { moviesSelector } from '../selectors'
 import { fetchMoviesList } from '../thunks/movies'
 

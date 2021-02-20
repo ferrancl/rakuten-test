@@ -2,7 +2,7 @@ import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED} from "../actions/type
 
 const initialState = {
     loading: false,
-    details: []
+    details: null
 }
 
 export const detailsReducer = (state = initialState, {type, payload}) => {
@@ -16,7 +16,7 @@ export const detailsReducer = (state = initialState, {type, payload}) => {
         case COMPLETED_DETAILS_FETCHED:
             return {
                 loading: false,
-                details: [...state.details, payload]
+                details: payload
             }
 
         default:

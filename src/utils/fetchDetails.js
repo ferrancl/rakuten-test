@@ -1,4 +1,4 @@
-import { URL, PARAMS } from "../constants/"
+import { URL, PARAMS, NOT_FOUND_ERROR } from "../constants/"
 
 
 export const fetchDetails = async (id) => {
@@ -12,20 +12,15 @@ export const fetchDetails = async (id) => {
         const { 
             data: { 
                 title, 
-                images: {snapshot: image}, 
-                order_options: {
-                    price, 
-                    points: {cost: points},
-                    scores: {score} }
+                images: {snapshot: image}
             } 
         } = await response.json()
 
-        return { id, title, image, price, points, score }
+        return { id, title, image }
     }
 
-    if (status >= 400 && status < 500) {
-        const { error } = await response.json()
-        throw new Error(error)
+    if (status === 404) {
+        throw new Error(NOT_FOUND_ERROR)
     }
 
     throw new Error('Server error')
