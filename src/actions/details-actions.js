@@ -1,6 +1,10 @@
-import { SET_DETAILS_FETCHED } from "./types";
+import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED } from "./types";
 
-export const setDetailsFetched = (payload) => ({
-    type: SET_DETAILS_FETCHED,
+export const startDetailsFetched = () => ({
+    type: START_DETAILS_FETCHED,
+})
+
+export const completedDetailsFetched = (payload) => ({
+    type: COMPLETED_DETAILS_FETCHED,
     payload
 })

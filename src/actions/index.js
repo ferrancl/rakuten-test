@@ -1,13 +1,12 @@
 import {setError, removeError} from './error-actions'
-import {startLoading, finishLoading} from './load-actions'
-import {setMoviesList} from './movies-actions'
-import {setDetailsFetched} from './details-actions'
+import {startMoviesList, completedMoviesList} from './movies-actions'
+import {startDetailsFetched, completedDetailsFetched} from './details-actions'
 
 export {
     setError, 
     removeError,
-    startLoading, 
-    finishLoading,
-    setMoviesList,
-    setDetailsFetched
+    startMoviesList,
+    completedMoviesList,
+    startDetailsFetched, 
+    completedDetailsFetched
 }

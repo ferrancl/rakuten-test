@@ -1,5 +1,5 @@
-import { SET_MOVIES_LIST } from '../types'
-import { setMoviesList } from '../index'
+import { START_MOVIES_LIST, COMPLETED_MOVIES_LIST } from '../types'
+import { startMoviesList, completedMoviesList } from '../index'
 
 describe('Movies List actions', () => {
 
@@ -9,12 +9,20 @@ describe('Movies List actions', () => {
         payload = Math.random()
     })
 
-    test('setMoviesList action should be created to add movies to the list', ()=> {
+    test('startMoviesList action should be created to add movies to the list', ()=> {
         const expectedAction = { 
-            type: SET_MOVIES_LIST,
+            type: START_MOVIES_LIST,
+        }
+
+        expect(startMoviesList()).toEqual(expectedAction)
+    })
+
+    test('completedMoviesList action should be created to add movies to the list', ()=> {
+        const expectedAction = { 
+            type: COMPLETED_MOVIES_LIST,
             payload
         }
 
-        expect(setMoviesList(payload)).toEqual(expectedAction)
+        expect(completedMoviesList(payload)).toEqual(expectedAction)
     })
 })

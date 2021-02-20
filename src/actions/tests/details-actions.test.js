@@ -1,5 +1,5 @@
-import { SET_DETAILS_FETCHED } from '../types'
-import { setDetailsFetched } from '../index'
+import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED } from '../types'
+import { startDetailsFetched, completedDetailsFetched } from '../index'
 
 describe('Details actions', () => {
 
@@ -9,13 +9,21 @@ describe('Details actions', () => {
         payload = Math.random()
     })
 
-    test('setDetailsFetched action should be created', ()=> {
+    test('startDetailsFetched action should be created', ()=> {
         const expectedAction = { 
-            type: SET_DETAILS_FETCHED, 
-            payload 
+            type: START_DETAILS_FETCHED, 
         }
 
-        expect(setDetailsFetched(payload)).toEqual(expectedAction)
+        expect(startDetailsFetched()).toEqual(expectedAction)
+    })
+
+    test('completedDetailsFetched action should be created', ()=> {
+        const expectedAction = { 
+            type: COMPLETED_DETAILS_FETCHED,
+            payload
+        }
+
+        expect(completedDetailsFetched(payload)).toEqual(expectedAction)
     })
 
 })

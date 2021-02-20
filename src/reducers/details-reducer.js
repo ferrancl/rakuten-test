@@ -1,11 +1,23 @@
-import { SET_DETAILS_FETCHED } from "../actions/types";
+import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED} from "../actions/types";
 
-const initialState = []
+const initialState = {
+    loading: false,
+    details: []
+}
 
 export const detailsReducer = (state = initialState, {type, payload}) => {
     switch (type){
-        case SET_DETAILS_FETCHED:
-            return [...state, payload]
+        case START_DETAILS_FETCHED:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case COMPLETED_DETAILS_FETCHED:
+            return {
+                loading: false,
+                details: [...state.details, payload]
+            }
 
         default:
             return state;
