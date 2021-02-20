@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const CategoryTitle = ({ name }) => {
+export const CategoryTitle = ({ categoryName }) => {
 
     return (
         <h2>
-            {name}      
+            {categoryName}      
         </h2>
     )
 }

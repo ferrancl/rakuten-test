@@ -8,9 +8,9 @@ export const fetchMovies = async (id) => {
     const { status } = response
 
     if (status === 200){
-        const { data: { id, name, contents: { data: movies }}} = await response.json()
-
-        return {id, name, movies}
+        const { data: { id, name: categoryName, contents: { data }}} = await response.json()
+        const movies = data.map(({id: movieId, images: { artwork: image }}) =>  { return ({ movieId, image })})
+        return {id, categoryName, movies}
     }
 
     if (status >= 400 && status < 500) {
