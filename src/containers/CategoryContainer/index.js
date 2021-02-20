@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { CategoryTitle, MoviesList } from '../../components/';
+import './styles.css'
 
 export const CategoryContainer = ({ movies, categoryName }) => {
 
@@ -11,10 +12,10 @@ export const CategoryContainer = ({ movies, categoryName }) => {
     }
     
     return (
-        <>
+        <div className="category">
             <CategoryTitle categoryName={categoryName} />
 
             <MoviesList onclick={handleGoToDetails} movies={movies} />
-        </>
+        </div>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
+import './styles.css'
 
 export const Navbar = () => {
     return (
-        <nav>
-            <h3>Navbar</h3>
+        <nav className="navbar">
+            {/* <img src={logo} alt="" /> */}
         </nav>
     )
 }

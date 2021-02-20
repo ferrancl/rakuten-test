@@ -5,6 +5,7 @@ import { Loader } from '../components'
 import { CategoryContainer } from '../containers/'
 import { moviesSelector } from '../selectors'
 import { fetchMoviesList } from '../thunks/movies'
+import { CONTENT_LIST } from '../constants'
 
 
 export const Home = () => {
@@ -13,7 +14,7 @@ export const Home = () => {
     
     useEffect(() => {
         if (movies.length === 0){
-            dispatch(fetchMoviesList())    
+            dispatch(fetchMoviesList(CONTENT_LIST))    
         
         }
         return () => {
@@ -22,7 +23,7 @@ export const Home = () => {
     }, [dispatch, movies])
 
     return (
-        <>
+        <div>
         {
             loading? 
                 <Loader /> 
@@ -35,6 +36,6 @@ export const Home = () => {
                     />
                 )
         }         
-        </>
+        </div>
     )
 }

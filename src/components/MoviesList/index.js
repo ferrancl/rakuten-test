@@ -1,11 +1,12 @@
 import React from 'react'
+import './styles.css'
 
 export const MoviesList = ({ onclick, movies }) => {
 
     return (
-        <div>
+        <div className="category__movies">
             {movies?.map(({movieId, image}) => {
-                return <div onClick={()=> onclick(movieId)} key={movieId}>
+                return <div className="category__movies-item" onClick={()=> onclick(movieId)} key={movieId}>
                     <img src={image} alt=""/>
                 </div>
             })}
