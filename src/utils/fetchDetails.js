@@ -28,5 +28,5 @@ export const fetchDetails = async (id) => {
         throw new Error(error)
     }
 
-    throw new Error('server error')
+    throw new Error('Server error')
 }

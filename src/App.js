@@ -8,7 +8,7 @@ export const App = () => {
     return (
         <>
         <Navbar />
-
+        
         <Switch>
             <Route exact path="/" >
                 <Home />

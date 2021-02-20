@@ -17,7 +17,7 @@ export const moviesReducer = (state = initialState, {type, payload}) => {
         case COMPLETED_MOVIES_LIST:
             return {
                 loading: false,
-                movies: [...state.movies, payload]
+                movies: state.movies.concat(payload)
             }
     
         default:

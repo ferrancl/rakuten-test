@@ -3,15 +3,14 @@ import { URL, PARAMS } from "../constants/"
 
 export const fetchMovies = async (id) => {
     const response = await fetch(`${URL}lists/${id + PARAMS}`, {
-        method: 'GET'
+        method: 'GET',
     })
-
     const { status } = response
 
     if (status === 200){
-        const { data: { data: movies }} = await response.json()
+        const { data: { id, name, contents: { data: movies }}} = await response.json()
 
-        return movies
+        return {id, name, movies}
     }
 
     if (status >= 400 && status < 500) {
@@ -19,5 +18,5 @@ export const fetchMovies = async (id) => {
         throw new Error(error)
     }
 
-    throw new Error('server error')
+    throw new Error('Server error')
 }
