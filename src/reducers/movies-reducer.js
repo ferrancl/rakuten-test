@@ -7,7 +7,6 @@ const initialState = {
 
 export const moviesReducer = (state = initialState, {type, payload}) => {
     switch (type){
-
         case START_MOVIES_LIST:
             return {
                 ...state,
@@ -17,7 +16,7 @@ export const moviesReducer = (state = initialState, {type, payload}) => {
         case COMPLETED_MOVIES_LIST:
             return {
                 loading: false,
-                movies: state.movies.concat(payload)
+                movies: payload
             }
     
         default:

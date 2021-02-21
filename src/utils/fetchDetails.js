@@ -1,6 +1,5 @@
 import { URL, PARAMS, NOT_FOUND_ERROR } from "../constants/"
 
-
 export const fetchDetails = async (id) => {
     const response = await fetch(`${URL}movies/${id + PARAMS}`, {
         method: 'GET'

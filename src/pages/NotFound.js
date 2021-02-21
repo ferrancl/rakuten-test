@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import { removeError } from '../actions'
 
 export const NotFound = () => {
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -11,9 +10,10 @@ export const NotFound = () => {
             dispatch(removeError())
         }
     }, [dispatch])
+    
     return (
         <>
-            <h2>NOT FOUND</h2>   
+            <h2 style={{color: "white", paddingTop: "5rem"}}>NOT FOUND</h2>   
         </>
     )
 }

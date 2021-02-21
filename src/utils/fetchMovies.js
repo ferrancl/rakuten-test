@@ -20,3 +20,24 @@ export const fetchMovies = async (id) => {
 
     throw new Error('Server error')
 }
+
+export const fetchData = async (id, endpoint, method = 'GET') => {
+    const response = await fetch(URL + endpoint + "/"+ id + PARAMS, {
+        method,
+    })
+    const { status } = response
+
+    if (status === 200){
+        const { data } = await response.json()
+        return data 
+    }
+
+    if (status >= 400 && status < 500) {
+        console.log(response)
+        const res = await response.json()
+        console.log(res)
+        throw new Error()
+    }
+
+    throw new Error('Server error')
+}

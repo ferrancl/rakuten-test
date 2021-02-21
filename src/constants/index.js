@@ -1,11 +1,14 @@
-import { URL, PARAMS } from "./url"
+import { URL, PARAMS, MOVIES_ENDPOINT, DETAIL_ENDPOINT } from "./url"
 import { CONTENT_LIST } from "./contents"
-import { NOT_FOUND_ERROR } from "./errors"
-
+import { ERROR_TEXT } from "./errors"
+import { ROUTES } from "./routes"
 
 export {
     URL,
     PARAMS,
+    MOVIES_ENDPOINT,
+    DETAIL_ENDPOINT,
     CONTENT_LIST,
-    NOT_FOUND_ERROR
+    ERROR_TEXT, 
+    ROUTES
 }

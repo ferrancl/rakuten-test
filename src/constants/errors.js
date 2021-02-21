@@ -1,1 +1,1 @@
-export const NOT_FOUND_ERROR = 'Error 404: Not Found'
+export const ERROR_TEXT = 'Oops! Something went wrong'

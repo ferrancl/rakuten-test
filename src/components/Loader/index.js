@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Loader = () => {
+export const Loader = () => {    
     return (
         <>
-            <p>Loading...</p>
+            <p style={{color: "white", paddingTop: "5rem"}}>Loading...</p>
         </>
     )
 }

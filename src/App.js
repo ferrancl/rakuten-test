@@ -1,40 +1,31 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Route, Switch, Redirect, useHistory } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
-import { Home, Detail } from './pages'
-import { ErrorMessage } from './containers/'
+import { Home, Detail, NotFound } from './pages'
+import { ErrorContainer } from './containers/'
 import { useSelector } from 'react-redux'
 import { errorSelector } from './selectors'
-import { NOT_FOUND_ERROR } from './constants'
-import { NotFound } from './pages/NotFound'
+import { ROUTES } from './constants'
 
 export const App = () => {
+    const { HOME, DETAILS, NOTFOUND } = ROUTES
+    const { notFoundError } = useSelector(errorSelector)
+    const history = useHistory()
 
-    const error = useSelector(errorSelector)
+    useEffect(() => {
+        if (notFoundError) history.push('/not-found')
+    }, [notFoundError, history])
 
     return (
         <>
         <Navbar />
-        
-        {error === NOT_FOUND_ERROR? 
-            <NotFound /> :
-            <>
-                <Switch>
-                    <Route exact path="/" >
-                        <Home />
-                    </Route>
-                    <Route exact path="/movies/:movieId" >
-                        <Detail />
-                    </Route>
-                    <Route>
-                        <NotFound />
-                    </Route>
-                </Switch>
-
-                {error && <ErrorMessage />}
-            </>
-        }
-        
+        <Switch>
+            <Route exact path={HOME} component={Home} />
+            <Route exact path={DETAILS} component={Detail} />
+            <Route exact path={NOTFOUND} component={NotFound} />
+            <Redirect to={NOTFOUND} />
+        </Switch>
+        <ErrorContainer />
         </>
     )
 }

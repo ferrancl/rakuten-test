@@ -1,15 +1,18 @@
 import { completedDetailsFetched, setError, startDetailsFetched } from "../../actions"
-import { fetchDetails } from "../../utils/fetchDetails"
+import { DETAIL_ENDPOINT } from "../../constants"
+import { fetchData } from "../../utils/fetchData"
+
+const { endpoint, method } = DETAIL_ENDPOINT
 
 export const fetchDetail = (id) => {
     return async (dispatch) => {
         try {
             dispatch(startDetailsFetched())
-            const fetchedDetails = await fetchDetails(id)
+            const fetchedDetails = await fetchData(id, endpoint, method)
             return dispatch(completedDetailsFetched(fetchedDetails))
         }
-        catch({message}){
-            dispatch(setError(message))
+        catch(error){
+            dispatch(setError(error.message))
         }
     } 
 }

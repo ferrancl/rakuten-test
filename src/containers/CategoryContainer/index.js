@@ -14,7 +14,6 @@ export const CategoryContainer = ({ movies, categoryName }) => {
     return (
         <div className="category">
             <CategoryTitle categoryName={categoryName} />
-
             <MoviesList onclick={handleGoToDetails} movies={movies} />
         </div>
     )

@@ -5,5 +5,4 @@ export const CONTENT_LIST = [
     'estrenos-espanoles',
     'si-te-perdiste',
     'especial-x-men',
-    'nuestras-preferidas-de-la-semana'
 ]

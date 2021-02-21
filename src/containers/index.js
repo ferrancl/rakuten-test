@@ -1,7 +1,7 @@
 import { CategoryContainer } from "./CategoryContainer";
-import { ErrorMessage } from "./ErrorMessage";
+import { ErrorContainer } from "./ErrorContainer";
 
 export {
     CategoryContainer,
-    ErrorMessage
+    ErrorContainer
 }
