@@ -1,10 +1,7 @@
 import { REMOVE_ERROR, SET_ERROR } from "../actions/types";
 import { ERROR_TEXT } from "../constants";
 
-const initialState = {
-    status: null,
-    message: null
-}
+const initialState = null
 
 export const errorReducer = (state = initialState, {type, payload}) => {
     switch (type){
@@ -15,10 +12,7 @@ export const errorReducer = (state = initialState, {type, payload}) => {
             }
         
         case REMOVE_ERROR:
-            return {
-                status: null,
-                message: null
-            }
+            return null
 
         default:
             return state

@@ -15,8 +15,8 @@ export const App = () => {
     const handleGoToHome = () => history.push(HOME)
 
     useEffect(() => {
-        if (notFoundError) history.push('/not-found')
-    }, [notFoundError, history])
+        if (notFoundError) history.push(NOTFOUND)
+    }, [notFoundError, history, NOTFOUND])
 
     return (
         <>

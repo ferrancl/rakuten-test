@@ -1,5 +1,5 @@
 export const detailsSelector = state => {
-    const loading = state.details.loading
+    const loading = state.details.loading || false
     if (state.details.details!== null) {
         const {id: idMovieFetched, title, images: {snapshot: image}} = state.details.details
         const details = {title, image}

@@ -1,4 +1,4 @@
-import { START_MOVIES_LIST, COMPLETED_MOVIES_LIST } from "../actions/types";
+import { START_MOVIES_LIST, COMPLETED_MOVIES_LIST, SET_ERROR } from "../actions/types";
 
 const initialState = {
     loading: false,
@@ -17,6 +17,12 @@ export const moviesReducer = (state = initialState, {type, payload}) => {
             return {
                 loading: false,
                 movies: payload
+            }
+            
+        case SET_ERROR:
+            return {
+                loading: false,
+                movies: []
             }
     
         default:
