@@ -7,6 +7,8 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import store from './store'
 import {App} from './App'
 
+console.log('eeaaaaa')
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
