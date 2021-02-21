@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { detailsSelector } from '../selectors'
 import { fetchDetail } from '../thunks/details'
 import { Loader } from '../components'
+import './styles.css'
 
 export const Detail = () => {
     const { movieId }  = useParams()
@@ -20,9 +21,9 @@ export const Detail = () => {
     if (loading) return <Loader />
     
     return (
-        <div>
-            <img src={details?.image} alt=""/>
-            <p>{details?.title}</p>
+        <div className="details">
+            <img className="details__image" src={details?.image} alt=""/>
+            <h3 className="details__title">{details?.title}</h3>
         </div>
     )
 }

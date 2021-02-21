@@ -13,6 +13,7 @@ export const fetchMoviesList = (list) => {
         }
         catch(error){
             dispatch(setError(error.message))
+            dispatch(completedMoviesList([]))
         }
     } 
 }

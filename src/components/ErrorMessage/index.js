@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 export const ErrorMessage = ({ error }) => {
 
@@ -6,7 +7,7 @@ export const ErrorMessage = ({ error }) => {
 
     return (
         <div>
-            <p style={{color: "white", paddingTop: "5rem"}}>{`${status} ${message}`}</p>
+            <h4 className="error">{`${status} ${message}`}</h4>
         </div>
     )
 }

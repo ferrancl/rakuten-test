@@ -1,9 +1,10 @@
 import React from 'react'
+import './styles.css'
 
 export const Loader = () => {    
     return (
         <>
-            <p style={{color: "white", paddingTop: "5rem"}}>Loading...</p>
+            <div className="loader"></div>
         </>
     )
 }

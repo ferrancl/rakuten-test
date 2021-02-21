@@ -13,6 +13,7 @@ export const fetchDetail = (id) => {
         }
         catch(error){
             dispatch(setError(error.message))
+            dispatch(completedDetailsFetched())
         }
     } 
 }
