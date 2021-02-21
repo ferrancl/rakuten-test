@@ -6,7 +6,6 @@
 
 .details__image{
     max-width: 100%;
-
 }
 
 .details__title{
@@ -20,3 +19,36 @@
     font-weight: bold;
     
 }
+
+.notfound {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.notfound__image {
+    width: 50%;
+    height: auto;
+}
+
+.notfound__message{
+    color: white;
+    width: 70%;
+}
+
+.notfound__message-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.notfound__message-text {
+    font-size: 1.4rem;
+    letter-spacing: 1px
+}
+
