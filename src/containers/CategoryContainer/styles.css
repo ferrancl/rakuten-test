@@ -4,3 +4,7 @@
     flex-direction: column;
     padding: 0.7rem;
 }
+
+.category:first-of-type {
+    padding-top: 3.8rem;
+}

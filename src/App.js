@@ -12,7 +12,7 @@ export const App = () => {
     const { notFoundError } = useSelector(errorSelector)
     const history = useHistory()
 
-    const handleGoToHome =() => history.push('/')
+    const handleGoToHome = () => history.push(HOME)
 
     useEffect(() => {
         if (notFoundError) history.push('/not-found')
