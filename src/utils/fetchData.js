@@ -9,7 +9,7 @@ export const fetchData = async (id, endpoint, method = 'GET') => {
     if (status !== 200){
         throw new Error(status)
     }
-
+    
     const { data } = await response.json()
     return data 
 }

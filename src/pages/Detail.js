@@ -8,13 +8,14 @@ import { Loader } from '../components'
 export const Detail = () => {
     const { movieId }  = useParams()
     const dispatch = useDispatch()
-    const { loading, details } = useSelector(detailsSelector)
+    const { loading, details, idMovieFetched } = useSelector(detailsSelector)
 
     useEffect(() => {
-        const existsMovie = (movieId === details?.id)
-        if (!existsMovie) dispatch(fetchDetail(movieId))
-
-    }, [dispatch, movieId, details]) 
+        const existsMovie = (movieId === idMovieFetched)
+        if (!existsMovie) {
+            dispatch(fetchDetail(movieId))
+        }
+    }, [dispatch, movieId, idMovieFetched]) 
     
     if (loading) return <Loader />
     

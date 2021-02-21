@@ -1,5 +1,5 @@
 export const ROUTES = {
     HOME: '/',
-    DETAILS: '/movie/:movieId',
+    DETAILS: '/movies/:movieId',
     NOTFOUND: '/not-found'
 }

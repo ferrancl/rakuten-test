@@ -12,7 +12,6 @@ export const fetchMoviesList = (list) => {
             return dispatch(completedMoviesList(fetchedList))
         }
         catch(error){
-            console.log(error.message);
             dispatch(setError(error.message))
         }
     } 

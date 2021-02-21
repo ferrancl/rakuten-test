@@ -10,10 +10,13 @@ export const moviesSelector = state => {
 }
 
 export const detailsSelector = state => {
-    const {data: {id, title, images: {snapshot: image}}} = state.details.details
-    const details = {id, title, image}
     const loading = state.details.loading
-    return {details, loading}
+    if (state.details.details!== null) {
+        const {id: idMovieFetched, title, images: {snapshot: image}} = state.details.details
+        const details = {title, image}
+        return {details, loading, idMovieFetched}
+    }
+    return { details: null, loading, idMovieFetched: null}
 }
 
 export const errorSelector = state => {
