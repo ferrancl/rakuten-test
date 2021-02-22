@@ -5,7 +5,8 @@ module.exports = {
   mode: "development",
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    filename: "./bundle.js",
+    publicPath: '/'
   },
   entry: "./src/index.js",
   module: {
@@ -40,9 +41,11 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "public"),
-    compress: true,
+    historyApiFallback: true,
     port: 3000,
     open: true,
+    hot: true,
     host: "localhost.rakuten.tv",
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };

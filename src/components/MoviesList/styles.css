@@ -1,13 +1,12 @@
 .category__movies{
     display: flex;
-    position: relative;
-    overflow-x: scroll;
+    width: 99%;
+
 }
 
 .category__movies-item {
-    position: relative;
-    min-width: 14%;
-    max-width: 14%;
+    min-width: 16%;
+    max-width: 16%;
     padding: 5px;
     cursor: pointer;
 }
@@ -22,4 +21,17 @@
     outline:5px solid yellow;
     outline-offset: -5px;
 }
+.category__movies-carousel {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
 
+.category__movies-right, .category__movies-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 400;
+}

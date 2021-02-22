@@ -7,7 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import store from './store'
 import {App} from './App'
 
-console.log('eeaaaaa')
+if (module.hot) module.hot.accept();
 
 ReactDOM.render(
   <Provider store={store}>
