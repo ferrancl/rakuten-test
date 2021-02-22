@@ -1,27 +1,18 @@
 import {detailsReducer} from '../'
-import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED } from '../../actions/types'
+import { COMPLETED_DETAILS_FETCHED, SET_ERROR } from '../../actions/types'
 
 describe('details reducer', () => {
     test('it is returning the initial state correctly', () => {
-        expect(detailsReducer(undefined, {})).toEqual({
-            loading: false, 
-            details: []
-        })
+        expect(detailsReducer(undefined, {})).toEqual(null)
     })
 
-    test('it is managing correctly START_DETAILS_FETCHED', () => {
-        expect(detailsReducer(undefined, {type: START_DETAILS_FETCHED})).toEqual({
-            loading: true, 
-            details: []
-        })
-    })
-
-    test('it is managing correctly COMPLETED_DETAILS_FETCHED', () => {
+    test('it is managing correctly completedDetailsFetched', () => {
         const payload = Math.random()
 
-        expect(detailsReducer(undefined, {type: COMPLETED_DETAILS_FETCHED, payload})).toEqual({
-            loading: false, 
-            details: [payload]
-        })
+        expect(detailsReducer(undefined, {type: COMPLETED_DETAILS_FETCHED, payload})).toEqual(payload)
+    })
+
+    test('it is managing correctly setError', () => {
+        expect(detailsReducer(undefined, {type: SET_ERROR })).toEqual(null)
     })
 })

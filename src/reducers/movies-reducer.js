@@ -1,4 +1,4 @@
-import { START_MOVIES_LIST, COMPLETED_MOVIES_LIST, SET_ERROR } from "../actions/types";
+import { COMPLETED_MOVIES_LIST, SET_ERROR } from "../actions/types";
 
 const initialState = []
 
