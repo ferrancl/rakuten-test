@@ -22,8 +22,7 @@ export const Detail = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="details">
-      <img className="details__image" src={details?.image} alt="" />
+    <div className="details" style={{backgroundImage: `url(${details?.image})`}}>
       <h3 className="details__title">{details?.title}</h3>
     </div>
   );
