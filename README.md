@@ -91,8 +91,8 @@ This selector looks to state.movies. Thanks to this selector the application onl
 #### 4.2.3. Details Selector
 State.details save the data of the last details of the movie visited. This way, if we come back to the same detail page, the app does not need to fetch the data.I have decided to add only the last and not the entire data of the details visited to avoid iterating every time we render the Detail page.
 
-### 4.3.Middlware
-The middlware used for managing the asynchronous calls is redux-thunk.
+### 4.3.Middleware
+The middleware used for managing the asynchronous calls is redux-thunk.
 
 ## 5.Code Coverage
 
