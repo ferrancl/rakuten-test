@@ -1,4 +1,4 @@
-import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED} from "../actions/types";
+import { START_DETAILS_FETCHED, COMPLETED_DETAILS_FETCHED, SET_ERROR } from "../actions/types";
 
 const initialState = {
     loading: false,
@@ -17,6 +17,12 @@ export const detailsReducer = (state = initialState, {type, payload}) => {
             return {
                 loading: false,
                 details: payload
+            }
+
+        case SET_ERROR:
+            return {
+                loading: false,
+                details: null
             }
 
         default:
