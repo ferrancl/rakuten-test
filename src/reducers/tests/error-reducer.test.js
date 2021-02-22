@@ -7,7 +7,7 @@ describe('error reducer', () => {
     })
 
     test('it is managing correctly SET_ERROR', () => {
-        let payload = Math.random()
+        let payload = {status: Math.random(), message: payload }
 
         expect(errorReducer(undefined, {type: SET_ERROR, payload})).toEqual(payload)
     })
