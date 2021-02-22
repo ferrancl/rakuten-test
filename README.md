@@ -1,34 +1,35 @@
 # RAKUTEN-TEST
 React-redux project that consumes the Rakuten API. The application shows the movies separated by category and shows a detail page if we click on a movie.
 
-## 1.Table of contents
-* [Technologies](#2.technologies)
-* [Setup](#3.setup)
-* [Structure](#4.structure)
-** [Pages](#4.1.pages)
-*** [Not-Found](#4.1.1.not-found)
-** [Containers](#4.2.containers)
-** [Components](#4.3.components)
-* [Redux](#5.redux)
-** [Containers](#5.1.State)
-*** [Error State](#5.1.1.error state)
-*** [Movies and Details State](#5.1.2.movies and details state)
-** [Selectors](#5.2.selectors)
-*** [Error Selector](#5.2.1.error selector)
-*** [Movie Selector](#5.2.2.movie selector)
-*** [Details Selector](#5.2.3.details selector)
-** [Middleware](#5.3.middleware)
-* [Code Coverage](#6.code coverage)
-* [Conclusion](#7.conclusion)
+## Table of contents
+1. [Technologies](#1.technologies)
+2. [Setup](#2.setup)
+3. [Structure](#3.structure)
+    * 3.1. [Pages](#3.1.pages)
+        * 3.1.1. [Not-Found](#3.1.1.not-found)
+    * 3.2. [Containers](#3.2.containers)
+    * 3.3. [Components](#3.3.components)
+4. [Redux](#4.redux)
+    * 4.1. [States](#4.1.states)
+        * 4.1.1. [Error State](#4.1.1.error-state)
+        * 4.1.2. [Loading State](#4.1.2.loading-state)
+        * 4.1.3. [Movies and Details State](#4.1.3.movies-and-details-state)
+    * 4.2.[Selectors](#4.2.selectors)
+        * 4.2.1. [Error Selector](#4.2.1.error-selector)
+        * 4.2.2. [Movie Selector](#4.2.2.movie-selector)
+        * 4.2.3. [Details Selector](#4.2.3.details-selector)
+    * 4.3. [Middleware](#4.3.middleware)
+5. [Code Coverage](#5.code-coverage)
+6. [Conclusion](#6.conclusion)
 
-## 2.Technologies
+## 1.Technologies
 * Javascript
-* React v.
-* Redux v.
+* React v.17.0.1
+* Redux v.4.0.5
 * Jest v26.0.6
-* Webpack v.5
+* Webpack v.5.11.1
 
-## 3.Setup
+## 2.Setup
 To run this project, you have to:
 
 ```bash
@@ -45,56 +46,61 @@ $ npm install
 $ npm start
 ```
 
-## 4.Structure
+## 3.Structure
 
 The application is split in views, containers and components.
-This structure has been made for making the application cleaner, and if something needs to be corrected, the person that is going to make the change knows immediately which file to go.
+This structure has been made for making the application cleaner and clearer.
 
-### 4.1.Pages
-In App.js there are the different routes managed with react-router.
-In this project, there are three different pages: Home, Detail and Not-found. Inside them, the containers and components are rendered.\
+### 3.1.Pages
+In this project, there are three different pages: Home, Detail and Not-found. Inside them, the containers and components are rendered.
 
-#### 4.1.1.Not-Found
+#### 3.1.1.Not-Found
 I want to point out when this page is being rendered. There are two situations in which the application will guide us to the ./not-found path:
-* If we put directly this path in the url bar.
+* If we put directly this path in the url bar or
 * If we put a invalid path
 
-It is important to notice that an invalid path can be for two different situations. An invalid path could be a path that does not appear in our routes, so, we redirect the user to this view.\
-But it is important to consider that, if we put ./movies/movie-that-not-exists, if we didn't manage the error when we make the API call, it would be a valid path.
-We will deepen into it later, in the [Redux](#5. redux) section.
+It is important to notice that an invalid path can be produced for two different situations. One possibility is that we put a path that does not appear in our routes, so, we redirect the user to this view.\
+The other possibility is that we pass through the path ./movies/:movie one movie that is not in the API. Then, the application catches the error and redirect to the Not-Found page.
 
-### 4.2.Containers
-Containers encapsulate the logic needed and are responsible for providing it to their child components.
+### 3.2.Containers
+Containers encapsulate the logic needed, keep track of state and are responsible for providing it to their child components. Known as smart components.
 
-### 4.3.Components
-Components only receive props and render their content. 
+### 3.3.Components
+Their only responsability is to present something to the DOM. Known as dumb components.
 
-## 5.Redux
+## 4.Redux
 Redux is the responsible for managing the global state of the application. Actions, reducers, thunks, selectors and the store are separated in their particular folder.\
-### 5.1.States
-#### 5.1.1.Error State
-There is a global error state for the whole app. ErrorContainer has a selector that distinguish if the error is 404 or not. This is because if the error is 404, we will redirect
-to the Not-Found page and not show the ErrorMessage. The ErrorMessage The error is cleaned automatically after 4 seconds.
+### 4.1.States
+#### 4.1.1.Error State
+There is a global error state for the whole app. ErrorContainer only receives the error if the error != 404. This is because if the error is 404, we will redirect
+to the Not-Found page and not show the ErrorMessage. The error is cleaned automatically after 4 seconds.
 
-#### 5.1.2.Movies and Details State
-Both Movies and Details state have loading state and an array with the data. The data fetched is put into them and is processed with selectors.\
+#### 4.1.2.Loading State
+Like the error state, there is a global loading state for the entire application.
 
-### 5.2.Selectors
-#### 5.2.1. Error Selector
-This selector is looking to the state.error and passes the error to the ErrorMessage component to show it. If error is 404, it renders the Not-Found page.
+#### 4.1.3.Movies and Details State
+The data fetched is put into them and is processed with selectors.\
 
-#### 5.2.2. Movies Selector
-This selector looks to state.movies, which is made up state.movies.loading and state.movies.movies (the data). If the app has already made the call to the API and has set the movies state with the data, the application doesn't fetch the data again.
+### 4.2.Selectors
+#### 4.2.1. Error Selector
+This selector is looking to the state.error and passes the error to the ErrorMessage component to show it.
 
-#### 5.2.3. Details Selector
-It works in the same way like state.movies but looks to state.details. State.details.details save the data of the last one details of the movie selected. I have decided to add only the last and not the entire data of the details visited for avoiding to iterate every time we render the Detail page.
+#### 4.2.2. Movies Selector
+This selector looks to state.movies. Thanks to this selector the application only fetches the movie data once.
 
-### 5.3.Middlware
+#### 4.2.3. Details Selector
+State.details save the data of the last details of the movie visited. This way, if we come back to the same detail page, the app does not need to fetch the data.I have decided to add only the last and not the entire data of the details visited to avoid iterating every time we render the Detail page.
+
+### 4.3.Middlware
 The middlware used for managing the asynchronous calls is redux-thunk.
 
-## 6.Code Coverage
+## 5.Code Coverage
 
-## 7.Conclusion
-The main objective of the project has been replicate this part of the Rakuten webpage, making use of good practices, clean code and reusable, with a good structure 
-and easy to understand for a person who sees the code for first time.
-The next step will be add more information in the detail page, like the official webpage of Rakuten.
+![code-coverage](./documents/code-coverage.png)
+
+![code-coverage2](./documents/code-coverage2.png)
+
+## 6.Conclusion
+The main objective of the project has been replicate this part of the Rakuten webpage, using good practices, clean and reusable code, with a good structure 
+and trying to facilitate the comprehension for a person who sees the code for first time.
+Possible improvements are adding more information in the detail page, like the official webpage of Rakuten, or writing more tests.

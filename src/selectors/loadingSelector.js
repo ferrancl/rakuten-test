@@ -1,1 +1,1 @@
-export const loadingSelector= (state) => state.loading || false
+export const loadingSelector = (state) => state.loading || false;

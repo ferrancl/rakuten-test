@@ -1,11 +1,10 @@
 .category {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0.7rem;
-    
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
 }
 
 .category:first-of-type {
-    padding-top: 5rem;
+  padding-top: 5rem;
 }

@@ -1,29 +1,27 @@
-import { SET_ERROR, REMOVE_ERROR } from '../types'
-import { setError, removeError } from '../index'
+import { SET_ERROR, REMOVE_ERROR } from "../types";
+import { setError, removeError } from "../index";
 
-describe('Error actions', () => {
+describe("Error actions", () => {
+  let payload;
 
-    let payload
+  beforeEach(() => {
+    payload = Math.random();
+  });
 
-    beforeEach(() => {
-        payload = Math.random()
-    })
+  test("setError action should be created", () => {
+    const expectedAction = {
+      type: SET_ERROR,
+      payload,
+    };
 
-    test('setError action should be created', ()=> {
-        const expectedAction = { 
-            type: SET_ERROR, 
-            payload 
-        }
+    expect(setError(payload)).toEqual(expectedAction);
+  });
 
-        expect(setError(payload)).toEqual(expectedAction)
-    })
+  test("removeError action should be created", () => {
+    const expectedAction = {
+      type: REMOVE_ERROR,
+    };
 
-    test('removeError action should be created', ()=> {
-        const expectedAction = { 
-            type: REMOVE_ERROR 
-        }
-
-        expect(removeError()).toEqual(expectedAction)
-    })
-
-})
+    expect(removeError()).toEqual(expectedAction);
+  });
+});

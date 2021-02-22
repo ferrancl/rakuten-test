@@ -1,17 +1,17 @@
 .navbar {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    position: fixed;
-    z-index: 20;
-    background-color: black;
-    height: 3.7rem;
-    border-bottom: 1px solid rgb(65, 65, 65);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: fixed;
+  z-index: 20;
+  background-color: black;
+  height: 3.7rem;
+  border-bottom: 1px solid rgb(65, 65, 65);
 }
 
 .navbar__logo {
-    padding-left: 1.5%;
-    height: 44%;
-    width:auto;
-    cursor:pointer;
+  padding-left: 1.5%;
+  height: 44%;
+  width: auto;
+  cursor: pointer;
 }

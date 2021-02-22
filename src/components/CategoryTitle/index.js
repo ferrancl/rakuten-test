@@ -1,11 +1,6 @@
-import React from 'react'
-import './styles.css'
+import React from "react";
+import "./styles.css";
 
 export const CategoryTitle = ({ categoryName }) => {
-
-    return (
-        <h2 className="category__title">
-            {categoryName}      
-        </h2>
-    )
-}
+  return <h2 className="category__title">{categoryName}</h2>;
+};

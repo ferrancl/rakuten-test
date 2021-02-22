@@ -10,7 +10,7 @@ export const MoviesList = ({ onclick, movies, handleScroll }) => {
       <div className="category__movies-left">
         <i
           className="fas fa-angle-left fa-3x"
-          style={{ color: "white" }}
+          style={{ color: "white", cursor: "pointer" }}
           onClick={() => handleScroll(moviesCarousel, LEFT)}
         ></i>
       </div>
@@ -31,7 +31,10 @@ export const MoviesList = ({ onclick, movies, handleScroll }) => {
         className="category__movies-right"
         onClick={() => handleScroll(moviesCarousel, RIGHT)}
       >
-        <i className="fas fa-angle-right fa-3x" style={{ color: "white" }}></i>
+        <i
+          className="fas fa-angle-right fa-3x"
+          style={{ color: "white", cursor: "pointer" }}
+        ></i>
       </div>
     </div>
   );

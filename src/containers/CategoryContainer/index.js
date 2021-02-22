@@ -8,9 +8,11 @@ export const CategoryContainer = ({ movies, categoryName }) => {
   const history = useHistory();
 
   const handleScroll = (reference, side) => {
-      if (side === LEFT) reference.current.scrollLeft -= reference.current.offsetWidth
-      if (side === RIGHT) reference.current.scrollLeft += reference.current.offsetWidth
-  }
+    if (side === LEFT)
+      reference.current.scrollLeft -= reference.current.offsetWidth;
+    if (side === RIGHT)
+      reference.current.scrollLeft += reference.current.offsetWidth;
+  };
   const handleGoToDetails = (id) => {
     history.push(`movies/${id}`);
   };
@@ -18,7 +20,11 @@ export const CategoryContainer = ({ movies, categoryName }) => {
   return (
     <div className="category">
       <CategoryTitle categoryName={categoryName} />
-      <MoviesList onclick={handleGoToDetails} movies={movies} handleScroll={handleScroll}/>
+      <MoviesList
+        onclick={handleGoToDetails}
+        movies={movies}
+        handleScroll={handleScroll}
+      />
     </div>
   );
 };

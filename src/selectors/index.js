@@ -3,10 +3,4 @@ import { errorSelector } from "./errorSelector";
 import { loadingSelector } from "./loadingSelector";
 import { moviesSelector } from "./moviesSelector";
 
-
-export {
-    errorSelector,
-    moviesSelector,
-    detailsSelector,
-    loadingSelector
-}
+export { errorSelector, moviesSelector, detailsSelector, loadingSelector };

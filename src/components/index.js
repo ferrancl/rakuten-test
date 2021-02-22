@@ -4,11 +4,4 @@ import { CategoryTitle } from "./CategoryTitle";
 import { Navbar } from "./Navbar";
 import { ErrorMessage } from "./ErrorMessage";
 
-
-export {
-    MoviesList,
-    Loader,
-    CategoryTitle,
-    Navbar,
-    ErrorMessage
-}
+export { MoviesList, Loader, CategoryTitle, Navbar, ErrorMessage };
