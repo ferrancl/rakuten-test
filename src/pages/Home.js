@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { Loader } from "../components";
 import { CategoryContainer } from "../containers/";
 import { moviesSelector, loadingSelector } from "../selectors";
@@ -8,14 +8,14 @@ import { CONTENT_LIST } from "../constants";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { movies, existsList } = useSelector(moviesSelector);
+  const movies  = useSelector(moviesSelector, shallowEqual);
   const loading = useSelector(loadingSelector);
 
   useEffect(() => {
-    if (!existsList) {
+    if (movies.length === 0) {
       dispatch(fetchMoviesList(CONTENT_LIST));
     }
-  }, [dispatch, existsList]);
+  }, [dispatch, movies]);
 
   if (loading) return <Loader />;
 

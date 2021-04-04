@@ -4,6 +4,7 @@ import "./styles.css";
 
 export const MoviesList = ({ onclick, movies, handleScroll }) => {
   const moviesCarousel = useRef();
+  const movieItem = useRef();
 
   return (
     <div className="category__movies">
@@ -11,7 +12,7 @@ export const MoviesList = ({ onclick, movies, handleScroll }) => {
         <i
           className="fas fa-angle-left fa-3x"
           style={{ color: "white", cursor: "pointer" }}
-          onClick={() => handleScroll(moviesCarousel, LEFT)}
+          onClick={() => handleScroll(moviesCarousel, movieItem, LEFT)}
         ></i>
       </div>
       <div className="category__movies-carousel" ref={moviesCarousel}>
@@ -20,6 +21,7 @@ export const MoviesList = ({ onclick, movies, handleScroll }) => {
             <div
               className="category__movies-item"
               onClick={() => onclick(movieId)}
+              ref={movieItem}
               key={movieId}
             >
               <img src={image} alt="" />
@@ -27,11 +29,9 @@ export const MoviesList = ({ onclick, movies, handleScroll }) => {
           );
         })}
       </div>
-      <div
-        className="category__movies-right"
-        onClick={() => handleScroll(moviesCarousel, RIGHT)}
-      >
+      <div className="category__movies-right">
         <i
+          onClick={() => handleScroll(moviesCarousel, movieItem, RIGHT)}
           className="fas fa-angle-right fa-3x"
           style={{ color: "white", cursor: "pointer" }}
         ></i>

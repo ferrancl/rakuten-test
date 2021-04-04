@@ -7,11 +7,15 @@ import "./styles.css";
 export const CategoryContainer = ({ movies, categoryName }) => {
   const history = useHistory();
 
-  const handleScroll = (reference, side) => {
-    if (side === LEFT)
-      reference.current.scrollLeft -= reference.current.offsetWidth;
-    if (side === RIGHT)
-      reference.current.scrollLeft += reference.current.offsetWidth;
+  const handleScroll = (referenceCarousel, referenceMovie, side) => {
+    const scroll =
+      Math.floor(
+        referenceCarousel.current.offsetWidth /
+          referenceMovie.current.offsetWidth
+      ) * referenceMovie.current.offsetWidth;
+
+    if (side === LEFT) referenceCarousel.current.scrollLeft -= scroll;
+    if (side === RIGHT) referenceCarousel.current.scrollLeft += scroll;
   };
   const handleGoToDetails = (id) => {
     history.push(`movies/${id}`);

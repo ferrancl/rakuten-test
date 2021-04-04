@@ -10,6 +10,6 @@ export const moviesSelector = (state) => {
     );
     return { id, categoryName, moviesList };
   });
-  const existsList = movies.length !== 0;
-  return { movies, existsList };
+  // const existsList = movies.length !== 0;
+  return movies;
 };
